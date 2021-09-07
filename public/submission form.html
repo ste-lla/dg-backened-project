@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetails(userDetailsForm.value)">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Full Name" formControlName="fullname" required>
+      <mat-error *ngFor="let validation of validation_messages.fullname">
+        <mat-error class="error-message" *ngIf="userDetailsForm.get('fullname').hasError(validation.type) && (userDetailsForm.get('fullname').dirty || userDetailsForm.get('fullname').touched)">{{validation.message}}</mat-error>
+      </mat-error>
+    </mat-form-field>
+	<button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!userDetailsForm.valid">Submit</button>
+</form>
+</html>
