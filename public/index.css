@@ -2,15 +2,15 @@
 body {
     background-color: rgb(191, 191, 235);
 }
-/* h1 {
-    color: purple;
-    body {
-    background: #FFC0CB;
-    overflow: hidden;
-    } */
 
+h1 {
+  text-align: center;
+}
 
-#envelope {
+/* Had to comment this out temporarily. 
+Envelope covers user text field when inspector tool is open in browser */
+
+/* #envelope {
   background: #f66b40;
   width: 300px;
   height: 200px;
@@ -81,4 +81,4 @@ body {
   75% {
     top: -200px;
   }
-}
+} */

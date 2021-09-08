@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "thhuzgnp",
-    "password": "Ocmb0wDYfbV-F87a8rf0PVFfEpXkzHQp",
-    "database": "thhuzgnp",
-    "host": "chunee.db.elephantsql.com",
+    "username": "postgres",
+    "password": "postgresdb",
+    "database": "wedding_registry",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
@@ -21,3 +21,6 @@
     "dialect": "mysql"
   }
 }
+
+
+

@@ -15,9 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   gift_registry.init({
     gift_name: DataTypes.STRING,
-    gift_type: DataTypes.STRING,
-    gift_id: DataTypes.INTEGER,
-    selected: DataTypes.BOOLEAN
+    selected_by_guest: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'gift_registry',

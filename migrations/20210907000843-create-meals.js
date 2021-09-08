@@ -1,17 +1,17 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('gifts', {
+    await queryInterface.createTable('meals', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      gift_name: {
+      meal_choice: {
         type: Sequelize.STRING
       },
-      gift_type: {
+      desert_choice: {
         type: Sequelize.STRING
       },
       guest_id: {
@@ -22,9 +22,6 @@ module.exports = {
         },
         onUpdate: 'cascade',
         onDelete: 'set null'
-      },
-      selected: {
-        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +34,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('gifts');
+    await queryInterface.dropTable('meals');
   }
 };
