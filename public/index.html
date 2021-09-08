@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        h1 {text-align: center;}
+        button { button-align: center;}
+        
+    </style>
     <meta charset="UTF-8">
+    <meta button=" fade">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Registry</title>
-    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
+    
     <h1>Welcome to Blah1's and Blah2's Wedding Registry</h1>
-
     
+    <link rel="stylesheet" href="index.css">
+    <div id="envelope">
     
-</body>
+        <div id="lid"></div>
+        <div id="letter"></div>
+        <div id="left-corner"></div>
+        <div id="right-corner"></div>
+      </div>
+      
+      
+    </body>
+    <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetails(userDetailsForm.value)">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Full Name" formControlName="fullname" required>
+        <mat-error *ngFor="let validation of validation_messages.fullname">
+          <mat-error class="error-message" *ngIf="userDetailsForm.get('fullname').hasError(validation.type) && (userDetailsForm.get('fullname').dirty || userDetailsForm.get('fullname').touched)">Please enter your info to log into the Registry</mat-error>
+        </mat-error>
+      </mat-form-field>
+      <button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!userDetailsForm.valid">Welcome</button>
+  </form>
 </html>
