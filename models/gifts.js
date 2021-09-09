@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.gifts.belongsTo(models.guest_id)
+      //models.gifts.belongsTo(models.guest_id);
     }
   };
   gifts.init({
-    gift_name: DataTypes.STRING,
-    gift_type: DataTypes.STRING,
+    gift_choice: DataTypes.STRING,
     guest_id: DataTypes.INTEGER,
-    selected: DataTypes.BOOLEAN
+    selected: DataTypes.BOOLEAN,
+    gift_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'gifts',

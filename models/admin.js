@@ -11,16 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.admin.hasMany(models.exports, {
+     //Code not working to allow db:migrate
+      /*  models.admins.hasMany(models.guests, {
         foreignKey: {
-          name: 'relationship_type',
+          name: 'relation_to_bg',
           allowNull: false
         }
-      })
+      }) */
     }
   };
   admin.init({
-    name: DataTypes.STRING,
+    first_name: DataTypes.STRING,
+    last_name: DataTypes.STRING,
     title: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
