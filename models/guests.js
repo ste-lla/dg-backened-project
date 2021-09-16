@@ -11,21 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      //models.guest.belongsTo(models.relation_to_bg);
-
-      models.guests.hasOne(models.meals, {
+      models.guests.hasOne(models.gift_registry, {
         foreignKey: {
           name: 'guest_id',
-          allowNull: false
         }
       });
-      
-      models.guests.hasOne(models.gifts, {
-        foreignKey: {
-          name: 'guest_id',
-          allowNull: false
-        }
-      });
+      //models.guests.belongsTo(models.admin_id)
     }
   };
   guests.init({
@@ -33,7 +24,11 @@ module.exports = (sequelize, DataTypes) => {
     last_name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    relation_to_bg: DataTypes.INTEGER
+    entree_choice: DataTypes.STRING,
+    desert_choice: DataTypes.STRING,
+    gift_choice: DataTypes.STRING,
+    cancelled_rsvp: DataTypes.BOOLEAN,
+    admin_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'guests',

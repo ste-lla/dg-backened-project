@@ -1,30 +1,36 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('gifts', {
+    await queryInterface.createTable('guests', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      first_name: {
+        type: Sequelize.STRING
+      },
+      last_name: {
+        type: Sequelize.STRING
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      password: {
+        type: Sequelize.STRING
+      },
+      entree_choice: {
+        type: Sequelize.STRING
+      },
+      desert_choice: {
+        type: Sequelize.STRING
+      },
       gift_choice: {
         type: Sequelize.STRING
       },
-      guest_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'guests',
-          key: 'id'
-        },
-        onUpdate: 'cascade',
-        onDelete: 'set null'
-      },
-      selected: {
+      cancelled_rsvp: {
         type: Sequelize.BOOLEAN
-      },
-      gift_id: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +43,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('gifts');
+    await queryInterface.dropTable('guests');
   }
 };

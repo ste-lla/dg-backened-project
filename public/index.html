@@ -10,79 +10,78 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <main class="p-3">
     
     <h1>Welcome to The CJS Wedding Registry</h1>
    
-    <div id="envelope">
+    <!-- Commented out to be able to see fields w/ console open in broswer -->
+    <!-- <div id="envelope">
         <div id="lid"></div>
         <div id="letter"></div>
         <div id="left-corner"></div>
         <div id="right-corner"></div>
-    </div>
+    </div> -->
 
 
-<!-- Form Stela built -->
-    <section class="mt-3 p-3 d-flex flex-column justify-content-center align-items-center">
-  
-      <h3 class="mb-4">Guest Login</h3>
-  
-      <form id="loginForm" action="/api/login" method="POST">
+    <section>
+      
+      <h3 class="mt-4">Registration for Bride and Groom</h3>
+      <form id="regForm" action="/api/admin/login" method="POST">
+          
+        <label class="mt-3" for="first_name" id="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" required>
+          <br>
+
+        <label class="mt-3" for="last_name" id="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" required>
+          <br>
+        
+        <label class="mt-3" for="admin_email" id="admin_email">Email</label>
+        <input type="email" id="admin_email" name="admin_email" required>
+            <br>
+
+        <label class="mt-3" for="password" id="password">Password</label>
+        <input type="password" id="password" name="password" required>
+          <br>
+
+        <input type="submit" value="Submit" class="mt-3">                       
+      </form> 
+
+      <br>
+
+      <h3 class="mt-3">Login for Bride and Groom</h3>
+      <form id="bgLogin" action="/api/admin/profile/:id" method="POST">
+          
+        <label for="guest_email">Email</label>
+        <input type="email" id="bg_email" name="bg_email" required>
+          <br>
+        
+        <label class="mt-3" for="password" id="password">Password</label>
+        <input type="password" id="password" name="password" required>
+          <br>
+
+        <input type="submit" value="Submit" class="mt-3">                         
+    </form>
+
+      <br>
     
+      <h3 class="mt-3 mb-3">Guest Login</h3>
+      <form id="loginForm" action="/api/guest/profile/:id" method='POST'>
           <label for="guest_email" id="guest_email">Email</label>
           <input type="email" id="guest_email" name="guest_email" required>
           
-
          <!--  <div class="mb-2">
               <label for="guest_pw" id="guest_pw">Password</label>
               <input type="password" id="guest_pw" name="guest_pw">   
           </div> -->
 
-          
-          <input type="submit" value="Submit">   
-                            
-      </form>  
-
-      <br>
-      
-      
-      <h1>Registration for Bride and Groom</h1>
-      <form id="regForm" action="/api/admin/register" method="POST">
-          
-        <label for="admin_email" id="admin_email">Email</label>
-        <input type="email" id="admin_email" name="admin_email" required>
-        
-        <label for="first_name" id="first_name">First Name</label>
-        <input type="text" id="first_name" name="first_name" required>
-
-        <label for="last_name" id="last_name">Last Name</label>
-        <input type="text" id="last_name" name="last_name" required>
-
-        <label for="password" id="password">Password</label>
-        <input type="password" id="password" name="password" required>
-
-        <input type="submit" value="Submit">   
-                          
+          <input type="submit" value="Submit" class="mt-3 mb-3">                           
       </form> 
-
-      <br>
-
-      <h1>Login for Bride and Groom</h1>
-      <form id="bgLogin" action="/api/admin/login" method="POST">
-          
-        <label for="guest_email">Email</label>
-        <input type="email" id="bg_email" name="bg_email" required>
-        
-        <label for="password" id="password">Password</label>
-        <input type="password" id="password" name="password" required>
-
-        <input type="submit" value="Submit">   
-                          
-    </form>
       
       
   <!-- Form that Cyrus built -->
 
- <!--    <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetails(userDetailsForm.value)">
+    <!-- <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetails(userDetailsForm.value)">
       <mat-form-field class="full-width">
         <input matInput placeholder="Full Name" formControlName="fullname" required>
         <mat-error *ngFor="let validation of validation_messages.fullname">
@@ -93,10 +92,11 @@
       <button id="welcomeBtn" class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!userDetailsForm.valid">Welcome</button>
     </form> -->
   
-</section>
-      
+    </section>
+
+  </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-<script src="app.js"></script>
+
 
 </body>
 </html>

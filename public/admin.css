@@ -1,5 +1,4 @@
 
-/* Styles applying to all html pages with /guest.css  */
 body {
     background-color: rgb(191, 191, 235);
 }
@@ -19,17 +18,3 @@ h1 {
     font-size: 1.25em;
     font-weight: bold;
 }
-
-
-/* Applies to guest.html cancel rsvp only  */
-#cancelWord {
-    color: red;
-}
-
-
-.guestNames {
-    font-weight: bold;
-}
-
-
-

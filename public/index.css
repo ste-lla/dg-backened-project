@@ -7,6 +7,12 @@ h1 {
   text-align: center;
 }
 
+main {
+  margin: 0 auto;
+  background-color: rgb(255, 243, 229);
+  width: 60%;
+}
+
 /* Had to comment this out temporarily. 
 Envelope covers user text field when inspector tool is open in browser */
 

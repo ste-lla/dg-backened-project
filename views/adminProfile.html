@@ -4,28 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>${adminName}'s' Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="/guest.css">
+
 </head>
 <body>
-    <h1>Hi, ${adminName}</h1>
 
-    <!-- 
-        Create a separate form for admin to:
-            add guests
-            add meals
-            add gifts
-        
-        Create (POST) endpoints for admin to add guests, meals and gifts
-        
-        Add links to this page 
-            See all guests
-            See registry (will display which guests/gifts are left)
-        
-        Delete
-        Allow admin to delete guests
+<main class="p-3">
 
-        Update
-        Allow admin to update gift registry items 
-     -->
+    <h1>Welcome, ${adminName}!</h1>
+
+    <h3 class="mt-4">Add Guests</h3>
+    <form id="addGuestsForm" action="/api/admin/profile/:id/addedGuest" method="POST">
+        <label class="mt-2" for="guestFName" class="headings">First Name</label>
+        <input type="text" id="guestFName" name="guestFName" required>
+            <br>
+
+        <label class="mt-2" for="guestLName" class="headings">Last Name</label>
+        <input type="text" id="guestLName" name="guestLName" required>
+            <br>
+      
+        <label class="mt-2" for="guestEmail" class="headings">Email</label>
+        <input type="email" id="guestEmail" name="guestEmail" required>
+            <br>
+            
+        <input type="submit" value="Submit" class="mt-3">   
+    </form>
+
+
+    <h3 class="mt-5">Add Food</h3>
+    <form id="addFoodForm" action="/api/admin/profile/:id/submittedFood" method="POST">
+        <div class="mt-2">Add Entree Options</div>
+            <input class="mt-2" type="text" id="addEntree1" name="addEntree1">
+            <input class="mt-2" type="text" id="addEntree2" name="addEntree2">
+            <input class="mt-2" type="text" id="addEntree3" name="addEntree3">
+            <input class="mt-2" type="text" id="addEntree4" name="addEntree4">
+
+        <div class="mt-3">Add Desert Options</div>
+            <input class="mt-2" type="text" id="addDesert1" name="addDesert1">
+            <input class="mt-2" type="text" id="addDesert2" name="addDesert2">
+            <input class="mt-2" type="text" id="addDesert3" name="addDesert3">
+                <br>
+        <input type="submit" value="Submit" class="mt-3">   
+    </form>
+
+    <h3 class="mt-5">Add Gift Items to Registry</h3>
+    <form id="addGiftsForm" action="/api/admin/profile/:id/submittedGifts" method="POST">
+        <input class="mt-2" type="text" id="addGift1" name="addGift1">
+        <input class="mt-2" type="text" id="addGift2" name="addGift2">
+        <input class="mt-2" type="text" id="addGift3" name="addGift3"> 
+        <input class="mt-2" type="text" id="addGift4" name="addGift4">
+        <input class="mt-2" type="text" id="addGift5" name="addGift5">
+        <input class="mt-2" type="text" id="addGift6" name="addGift6">
+
+        <br>
+        <input type="submit" value="Submit" class="mt-3">   
+    </form>
+
+
+    <h3 class="mt-5">View/Modify Guest Details</h3>
+        <ul>
+            <li><a href="/api/admin/profile/:id/guestAttending" id="gAttending">Guests Attending</a></li>
+            <li><a href="/api/admin/profile/:id/guestNotAttending" id="gNotAttending">Guests No Longer Attending</a></li>
+<!--             <li><a href="/api/admin/profile/:id/deleteGift" id="deleteGift">Delete Gift From Registry</a></li>
+ -->        </ul>
+        
+</main>
+
+ <!--  <script src="/gAttendance.js"></script> -->
+  <script src="/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -11,13 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      //models.meals.belongsTo(models.guest_id);
+      //models.meals.belongsTo(models.admin_id)
     }
   };
   meals.init({
-    meal_choice: DataTypes.STRING,
-    desert_choice: DataTypes.STRING,
-    guest_id: DataTypes.INTEGER
+    entree_1: DataTypes.STRING,
+    entree_2: DataTypes.STRING,
+    entree_3: DataTypes.STRING,
+    entree_4: DataTypes.STRING,
+    desert_1: DataTypes.STRING,
+    desert_2: DataTypes.STRING,
+    desert_3: DataTypes.STRING,
+    admin_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'meals',
