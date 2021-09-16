@@ -8,16 +8,31 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      meal_choice: {
+      entree_1: {
         type: Sequelize.STRING
       },
-      desert_choice: {
+      entree_2: {
         type: Sequelize.STRING
       },
-      guest_id: {
+      entree_3: {
+        type: Sequelize.STRING
+      },
+      entree_4: {
+        type: Sequelize.STRING
+      },
+      desert_1: {
+        type: Sequelize.STRING
+      },
+      desert_2: {
+        type: Sequelize.STRING
+      },
+      desert_3: {
+        type: Sequelize.STRING
+      },
+      admin_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'guests',
+          model: 'admins',
           key: 'id'
         },
         onUpdate: 'cascade',

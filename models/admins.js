@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class admin extends Model {
+  class admins extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,24 +11,34 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-     //Code not working to allow db:migrate
-      /*  models.admins.hasMany(models.guests, {
+      models.admins.hasOne(models.meals, {
         foreignKey: {
-          name: 'relation_to_bg',
+          name: 'admin_id',
           allowNull: false
         }
-      }) */
+      });
+      models.admins.hasMany(models.gift_registry, {
+        foreignKey: {
+          name: 'admin_id',
+          allowNull: false
+        }
+      });
+      models.admins.hasMany(models.guests, {
+        foreignKey: {
+          name: 'admin_id',
+          allowNull: true
+        }
+      });
     }
   };
-  admin.init({
+  admins.init({
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    title: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'admin',
+    modelName: 'admins',
   });
-  return admin;
+  return admins;
 };
